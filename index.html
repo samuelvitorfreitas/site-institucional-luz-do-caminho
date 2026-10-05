@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Comunidade Luz do Caminho</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#1E2A44;--azul2:#2C3E66;--ouro:#C8A24A;--ouro2:#E0BC68;--fundo:#FAF7F0;--sup:#fff;--areia:#EFE8D8;--texto:#1E2A44;--suave:#5B6478;--borda:#E1D9C6;--ft:"Lora",Georgia,serif;--fx:"Nunito Sans","Segoe UI",Arial,sans-serif}
+:root[data-tema="escuro"]{--fundo:#0E1424;--sup:#161E34;--areia:#121A2E;--texto:#F1ECDF;--suave:#A9B1C4;--borda:#27324D}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fx);background:var(--fundo);color:var(--texto);line-height:1.7;transition:background .3s,color .3s}
+h1,h2,h3{font-family:var(--ft);line-height:1.2;margin-bottom:.7rem}
+h1{font-size:clamp(2rem,5vw,3.3rem)}h2{font-size:clamp(1.6rem,3.2vw,2.2rem)}h3{font-size:1.25rem}
+p,ul{max-width:66ch;margin-bottom:1rem}ul{padding-left:1.2rem}
+.sob{text-transform:uppercase;letter-spacing:.18em;font-size:.76rem;font-weight:600;color:var(--ouro);margin-bottom:.5rem}
+.alerta{display:flex;align-items:center;justify-content:center;gap:1rem;background:#8C2F39;color:#fff;font-size:.92rem;padding:.55rem 5%;text-align:center}
+.alerta strong{text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;background:#fff;color:#8C2F39;padding:.1rem .5rem;border-radius:3px}
+.alerta button{background:none;border:0;color:#fff;font-size:1.3rem;cursor:pointer;line-height:1}
+.cab{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:.9rem 5%;background:var(--azul);color:#fff;position:sticky;top:0;z-index:10}
+.marca{display:flex;align-items:center;gap:.7rem;font-family:var(--ft);font-weight:700;font-size:1.25rem;cursor:pointer}
+.menu{display:flex;align-items:center;gap:.2rem;flex-wrap:wrap}
+.menu .l{background:none;border:0;border-bottom:2px solid transparent;color:#D5DAE8;padding:.5rem .8rem;text-transform:uppercase;letter-spacing:.1em;font:500 .78rem var(--fx);cursor:pointer;transition:.2s}
+.menu .l:hover{color:#fff;border-bottom-color:#7B88AA}.menu .l.active{color:#fff;border-bottom-color:var(--ouro2)}
+.tema{margin-left:.8rem;background:none;color:#D5DAE8;border:1px solid #4A5878;padding:.4rem .8rem;font:.75rem var(--fx);text-transform:uppercase;letter-spacing:.1em;cursor:pointer}
+.bloco{padding:3.5rem 5%;max-width:1150px;margin:0 auto}
+.claro{background:var(--areia);max-width:none;padding-left:max(5%,calc((100% - 1150px)/2));padding-right:max(5%,calc((100% - 1150px)/2))}
+.grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:1.6rem}
+.cartao{background:var(--sup);border:1px solid var(--borda);border-top:3px solid var(--ouro);border-radius:6px;padding:1.6rem;transition:.25s}
+.cartao:hover{box-shadow:0 10px 28px rgba(30,42,68,.12);transform:translateY(-3px)}
+.cartao p:last-child,.cartao ul:last-child{margin-bottom:0}
+.hora{font-family:var(--ft);font-size:1.6rem;color:var(--ouro);font-weight:700;display:block}
+.botao{display:inline-block;background:var(--ouro);color:#1E2A44;border:0;border-radius:4px;padding:.85rem 1.7rem;font:600 .85rem var(--fx);text-transform:uppercase;letter-spacing:.1em;cursor:pointer;text-decoration:none;transition:.2s}
+.botao:hover{background:var(--ouro2);transform:translateY(-2px)}
+.borda{background:none;border:1px solid #fff;color:#fff;margin-left:.6rem}.borda:hover{background:rgba(255,255,255,.15)}
+.car{position:relative;display:grid;color:#fff;overflow:hidden;background:var(--azul)}
+.sl{grid-area:1/1;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:2rem;padding:4.5rem 7% 5rem;opacity:0;visibility:hidden;transition:opacity .8s}
+.sl.on{opacity:1;visibility:visible}.sl p{font-size:1.1rem}
+.s1{background:linear-gradient(130deg,#1E2A44 50%,#33477A)}.s2{background:linear-gradient(130deg,#2C3E66 40%,#1E2A44)}.s3{background:linear-gradient(130deg,#1E2A44 40%,#5A4318)}
+.sl svg{width:100%;max-height:300px}
+.ver{font-family:var(--ft);font-style:italic;font-size:1.3rem}
+.pts{position:absolute;bottom:1.3rem;left:0;right:0;display:flex;justify-content:center;gap:.6rem}
+.pts button{width:12px;height:12px;border-radius:50%;border:2px solid #fff;background:none;cursor:pointer}.pts button.on{background:var(--ouro2);border-color:var(--ouro2)}
+.nums{background:var(--azul2);color:#fff;padding:2.4rem 5%}
+.nums .g{max-width:1150px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1.4rem;text-align:center}
+.nums strong{display:block;font-family:var(--ft);font-size:2.6rem;color:var(--ouro2);line-height:1.1}
+.nums span{font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;color:#D5DAE8}
+.palavra{background:linear-gradient(130deg,#1E2A44,#33477A);color:#fff;text-align:center;padding:4rem 5%}
+.palavra blockquote{font-family:var(--ft);font-style:italic;font-size:clamp(1.3rem,3vw,2rem);max-width:30ch;margin:1rem auto;line-height:1.4}
+.palavra cite{display:block;color:var(--ouro2);font-style:normal;font-weight:600;letter-spacing:.1em;margin-bottom:1.5rem}
+.depo p{font-style:italic}.depo footer{font-size:.88rem;color:var(--suave);font-weight:600;margin-top:1rem}
+.dest{background:var(--azul);color:#fff;text-align:center;padding:4rem 5%}.dest p{margin:0 auto 1.4rem;color:#D5DAE8}
+.duas{display:grid;grid-template-columns:1.3fr 1fr;gap:2.5rem;margin-top:1.8rem;align-items:start}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.15rem .6rem;border-radius:3px;color:#fff;margin-bottom:.6rem}
+.t-urg{background:#8C2F39}.t-ev{background:#2C3E66}.t-vol{background:#2F7A4F}.t-or{background:#8A6A1F}
+label{display:block;font-weight:600;margin-top:1rem;font-size:.9rem}
+input,textarea{width:100%;padding:.8rem;margin-top:.3rem;border:1px solid var(--borda);border-radius:4px;background:var(--sup);color:var(--texto);font:inherit}
+.inv{border-color:#C0392B}.erro{display:block;color:#C0392B;font-size:.88rem;min-height:1.2rem}
+.ok{color:#2F7A4F;font-weight:600;margin-top:1rem}
+form .botao{margin-top:1rem}
+.tl{list-style:none;border-left:2px solid var(--ouro);margin:1.5rem 0 0 .6rem;padding-left:1.7rem}
+.tl li{position:relative;margin-bottom:1.4rem}.tl li:before{content:"";position:absolute;left:-2.25rem;top:.5rem;width:12px;height:12px;border-radius:50%;background:var(--ouro)}
+.tl strong{font-family:var(--ft);font-size:1.4rem;color:var(--ouro)}
+table{width:100%;border-collapse:collapse}td{padding:.7rem .4rem;border-bottom:1px solid var(--borda)}td:last-child{text-align:right;font-weight:600}
+.rod{background:var(--azul);color:#D5DAE8;text-align:center;padding:2.2rem 5%}.rod p{margin:0 auto .4rem;max-width:none;font-size:.93rem}
+.topo{position:fixed;right:1.2rem;bottom:1.2rem;background:var(--ouro);color:#1E2A44;border:0;border-radius:4px;padding:.8rem 1.1rem;font:600 .8rem var(--fx);text-transform:uppercase;letter-spacing:.1em;cursor:pointer;opacity:0;visibility:hidden;transition:.3s}.topo.v{opacity:1;visibility:visible}
+.pg{display:none}.pg.on{display:block}
+@media(max-width:860px){.sl,.duas{grid-template-columns:1fr}.sl svg{max-height:150px;order:-1}.sl{padding:2.5rem 6% 4rem}}
+@media(max-width:768px){.cab{flex-direction:column;align-items:flex-start}.menu{width:100%}.menu .l{flex:1 1 30%}.tema{margin-left:0;flex:1 1 100%}.borda{margin:.6rem 0 0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="alerta" id="alerta"><strong>Aviso</strong><span>Culto de oração de quarta começa às 19h30 nesta semana. Avise os irmãos!</span><button type="button" id="fechar" aria-label="Fechar aviso">&times;</button></div>
+<header class="cab">
+  <div class="marca" data-p="inicio"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#C8A24A"/><path d="M14 6h4v7h7v4h-7v9h-4v-9H7v-4h7z" fill="#1E2A44"/></svg> Luz do Caminho</div>
+  <nav class="menu" aria-label="Menu principal">
+    <button class="l active" data-p="inicio">Início</button>
+    <button class="l" data-p="sobre">Quem somos</button>
+    <button class="l" data-p="programacao">Programação</button>
+    <button class="l" data-p="avisos">Avisos</button>
+    <button class="l" data-p="contato">Contato</button>
+    <button id="tema" class="tema" type="button">Modo escuro</button>
+  </nav>
+</header>
+
+<main>
+<section class="pg on" id="inicio">
+  <div class="car">
+    <div class="sl on s1"><div><p class="sob">Uma família com 1.200 membros</p><h1>Aqui tem lugar para você</h1><p>Somos uma igreja grande de coração ainda maior. Venha como está e sinta o abraço da nossa família.</p><button class="botao" data-p="programacao">Ver cultos</button><button class="botao borda" data-p="contato">Como chegar</button></div>
+      <svg viewBox="0 0 200 200" aria-hidden="true"><g stroke="#E0BC68" stroke-width="3" opacity=".5"><path d="M100 100L100 5M100 100L170 30M100 100L195 100M100 100L170 170M100 100L100 195M100 100L30 170M100 100L5 100M100 100L30 30"/></g><circle cx="100" cy="100" r="46" fill="#1E2A44"/><path d="M92 68h16v26h22v16h-22v36H92v-36H70V94h22z" fill="#E0BC68"/></svg></div>
+    <div class="sl s2"><div><p class="sob">Palavra de Vida</p><h2>Deus amou você de tal maneira</h2><p class="ver">"Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna."<br><small>João 3:16</small></p><button class="botao" data-p="programacao">Conhecer Jesus</button></div>
+      <svg viewBox="0 0 200 200" aria-hidden="true"><path d="M30 60Q100 40 100 60Q100 40 170 60V160Q100 140 100 160Q100 140 30 160Z" fill="#F4EBD3"/><path d="M100 60V160" stroke="#C8A24A" stroke-width="3"/><g stroke="#C8A24A" stroke-width="3" opacity=".7"><path d="M45 85Q75 78 90 85M45 105Q75 98 90 105M45 125Q75 118 90 125M110 85Q125 78 155 85M110 105Q125 98 155 105M110 125Q125 118 155 125"/></g></svg></div>
+    <div class="sl s3"><div><p class="sob">Primeira vez conosco?</p><h2>Vamos receber você com carinho</h2><p>Nossa equipe de recepção estará na porta para acompanhar você e sua família, com espaço infantil e estacionamento.</p><button class="botao" data-p="contato">Quero visitar</button></div>
+      <svg viewBox="0 0 200 200" aria-hidden="true"><path d="M100 150C60 120 40 95 55 70C68 50 92 60 100 78C108 60 132 50 145 70C160 95 140 120 100 150Z" fill="#C8A24A"/><circle cx="100" cy="40" r="10" fill="#E0BC68" opacity=".8"/></svg></div>
+    <div class="pts"></div>
+  </div>
+
+  <div class="nums"><div class="g">
+    <div><strong>1.200+</strong><span>membros</span></div>
+    <div><strong>3</strong><span>cultos aos domingos</span></div>
+    <div><strong>20</strong><span>ministérios</span></div>
+    <div><strong>60</strong><span>grupos nos lares</span></div>
+  </div></div>
+
+  <div class="bloco"><p class="sob">Venha nos visitar</p><h2>Nossos encontros</h2>
+    <div class="grade">
+      <article class="cartao"><span class="hora">Domingo, 8h</span><h3>Culto da manhã</h3><p>Um começo de domingo com louvor e ensino da Palavra.</p></article>
+      <article class="cartao"><span class="hora">Domingo, 10h</span><h3>Culto da família</h3><p>O mais animado: espaço kids, louvor para todas as idades e comunhão.</p></article>
+      <article class="cartao"><span class="hora">Domingo, 19h</span><h3>Culto de celebração</h3><p>Uma noite de adoração, mensagem e café de comunhão.</p></article>
+      <article class="cartao"><span class="hora">Quarta, 20h</span><h3>Culto de oração</h3><p>Intercessão, gratidão e estudo da Bíblia durante a semana.</p></article>
+    </div></div>
+
+  <div class="palavra">
+    <p class="sob">Versículo para você hoje</p>
+    <blockquote id="verso">"Vinde a mim, todos os que estais cansados e oprimidos, e eu vos aliviarei."</blockquote>
+    <cite id="ref">Mateus 11:28</cite>
+    <button class="botao" type="button" id="outro">Outro versículo</button>
+  </div>
+
+  <div class="bloco"><p class="sob">Quem já faz parte</p><h2>Uma família que se ama</h2>
+    <div class="grade">
+      <article class="cartao depo"><p>"Cheguei sozinha e desanimada. No primeiro domingo, três pessoas me abraçaram e me convidaram para o almoço."</p><footer>Ana Paula, membro há 4 anos</footer></article>
+      <article class="cartao depo"><p>"Quando perdi meu emprego, a igreja inteira se mobilizou com oração, cesta básica e até indicação de vaga."</p><footer>Roberto, membro há 7 anos</footer></article>
+      <article class="cartao depo"><p>"Meus filhos adoram o ministério infantil e eu encontrei amigos de verdade no grupo do meu bairro."</p><footer>Juliana, membro há 2 anos</footer></article>
+    </div></div>
+
+  <div class="dest"><h2>Traga um amigo, um vizinho, uma família</h2><p>Há sempre uma cadeira a mais para quem chega. Convide alguém hoje mesmo.</p>
+    <a class="botao" target="_blank" rel="noopener" href="https://wa.me/?text=Venha%20conhecer%20a%20Comunidade%20Luz%20do%20Caminho!%20Cultos%20aos%20domingos%20%C3%A0s%208h%2C%2010h%20e%2019h.%20Rua%20da%20Esperan%C3%A7a%2C%20200%20-%20Centro.">Convidar pelo WhatsApp</a></div>
+</section>
+
+<section class="pg" id="sobre">
+  <div class="bloco"><p class="sob">Quem somos</p><h1>Uma família grande, com coração de lar</h1><p>A Comunidade Luz do Caminho nasceu em 2008, em uma sala de estar, com 12 pessoas reunidas para orar. Hoje são mais de 1.200 membros e amigos que se encontram para adorar, aprender e servir a cidade. Crescemos em número, mas continuamos conhecendo cada um pelo nome.</p></div>
+  <div class="bloco claro"><p class="sob">Nossa jornada</p><h2>Marcos da nossa história</h2>
+    <ol class="tl">
+      <li><strong>2008</strong><p>Primeiro encontro de oração em uma casa, com 12 pessoas.</p></li>
+      <li><strong>2013</strong><p>Início dos cultos regulares e da escola bíblica infantil.</p></li>
+      <li><strong>2018</strong><p>Inauguração do templo para 600 pessoas e do projeto de ação social.</p></li>
+      <li><strong>2022</strong><p>Três cultos aos domingos e criação dos grupos nos lares.</p></li>
+      <li><strong>2026</strong><p>Mais de 1.200 membros, 20 ministérios e 60 grupos em funcionamento.</p></li>
+    </ol></div>
+  <div class="bloco"><p class="sob">Princípios</p><h2>Missão, visão e valores</h2>
+    <div class="grade">
+      <article class="cartao"><h3>Missão</h3><p>Anunciar o amor de Cristo e cuidar das pessoas, formando discípulos que amam e servem.</p></article>
+      <article class="cartao"><h3>Visão</h3><p>Ser uma igreja saudável e acolhedora, onde ninguém se sinta sozinho.</p></article>
+      <article class="cartao"><h3>Valores</h3><ul><li>Palavra de Deus em primeiro lugar</li><li>Amor uns pelos outros</li><li>Serviço ao próximo</li><li>Oração e comunhão</li></ul></article>
+    </div></div>
+  <div class="palavra"><p class="sob">Nosso lema</p><blockquote>"Nisto conhecerão todos que sois meus discípulos, se vos amardes uns aos outros."</blockquote>João 13:35</div>
+</section>
+
+<section class="pg" id="programacao">
+  <div class="bloco"><p class="sob">Agenda</p><h1>Programação e ministérios</h1><p>Com 20 ministérios, há um lugar para cada fase da vida e um jeito de servir.</p>
+    <div class="grade">
+      <article class="cartao"><h3>Ministério infantil</h3><p>Aulas lúdicas para crianças de 3 a 11 anos, com equipe treinada.</p></article>
+      <article class="cartao"><h3>Adolescentes e jovens</h3><p>Encontros aos sábados com louvor, debates e amizade.</p></article>
+      <article class="cartao"><h3>Casais e famílias</h3><p>Reuniões mensais e retiros para fortalecer o lar.</p></article>
+      <article class="cartao"><h3>Louvor e artes</h3><p>Banda, vocal, teatro e mídia. Há espaço para novos talentos.</p></article>
+      <article class="cartao"><h3>Ação social</h3><p>Cestas básicas, agasalhos e apoio a famílias da região.</p></article>
+      <article class="cartao"><h3>Cuidado e visitação</h3><p>Equipe que visita enfermos e acolhe quem está em luto.</p></article>
+      <article class="cartao"><h3>Recepção</h3><p>Os primeiros rostos amigos que recebem cada visitante.</p></article>
+      <article class="cartao"><h3>Grupos nos lares</h3><p>60 grupos durante a semana para estudo, oração e comunhão.</p></article>
+    </div></div>
+  <div class="bloco claro"><p class="sob">Semana típica</p><h2>Horários</h2>
+    <div class="cartao"><table><tbody>
+      <tr><td>Segunda</td><td>Grupos nos lares, 20h</td></tr>
+      <tr><td>Quarta</td><td>Culto de oração, 20h</td></tr>
+      <tr><td>Quinta</td><td>Ensaio do louvor, 19h30</td></tr>
+      <tr><td>Sábado</td><td>Encontro de jovens, 19h30</td></tr>
+      <tr><td>Domingo</td><td>Cultos às 8h, 10h e 19h</td></tr>
+    </tbody></table></div></div>
+</section>
+
+<section class="pg" id="avisos">
+  <div class="bloco"><p class="sob">Mural dos irmãos</p><h1>Avisos e recados</h1><p>Fique atento: as informações abaixo valem para toda a igreja. Compartilhe com quem não viu.</p>
+    <div class="grade">
+      <article class="cartao"><span class="tag t-urg">Urgente</span><h3>Mudança de horário</h3><p>O culto de oração desta quarta começa às 19h30, e não às 20h.</p></article>
+      <article class="cartao"><span class="tag t-ev">Evento</span><h3>Retiro de casais</h3><p>Inscrições abertas na secretaria até o fim do mês. Vagas limitadas.</p></article>
+      <article class="cartao"><span class="tag t-vol">Voluntários</span><h3>Precisamos de você</h3><p>Faltam voluntários no ministério infantil e na recepção. Fale com a liderança.</p></article>
+      <article class="cartao"><span class="tag t-ev">Campanha</span><h3>Agasalho solidário</h3><p>Traga roupas e cobertores em bom estado até o próximo domingo.</p></article>
+      <article class="cartao"><span class="tag t-or">Oração</span><h3>Cuide de quem precisa</h3><p>Conhece algum irmão enfermo ou em luto? Avise a secretaria para a equipe de cuidado visitar.</p></article>
+      <article class="cartao"><span class="tag t-ev">Batismo</span><h3>Inscrições abertas</h3><p>Quem deseja se batizar no próximo mês deve procurar a secretaria.</p></article>
+    </div></div>
+  <div class="palavra"><p class="sob">Lembrete</p><blockquote>"Levai as cargas uns dos outros, e assim cumprireis a lei de Cristo."</blockquote>Gálatas 6:2</div>
+</section>
+
+<section class="pg" id="contato">
+  <div class="bloco"><p class="sob">Fale conosco</p><h1>Contato e pedidos de oração</h1>
+    <div class="duas">
+      <form id="form" novalidate>
+        <label for="nome">Nome</label><input id="nome" type="text"><span class="erro" id="e-nome"></span>
+        <label for="email">E-mail</label><input id="email" type="email"><span class="erro" id="e-email"></span>
+        <label for="msg">Mensagem ou pedido de oração</label><textarea id="msg" rows="5"></textarea><span class="erro" id="e-msg"></span>
+        <button class="botao" type="submit">Enviar</button>
+        <p id="ok" class="ok" role="status"></p>
+      </form>
+      <aside class="cartao"><h2>Venha nos visitar</h2>
+        <p><strong>Endereço:</strong><br>Rua da Esperança, 200 - Centro</p>
+        <p><strong>Telefone:</strong><br>(33) 3200-2222</p>
+        <p><strong>E-mail:</strong><br>contato@luzdocaminho.org.br</p>
+        <p><strong>Secretaria:</strong><br>Terça a sexta, das 9h às 17h</p>
+        <p><strong>Para visitantes:</strong><br>Estacionamento gratuito, espaço kids e recepção na entrada.</p></aside>
+    </div></div>
+</section>
+</main>
+
+<footer class="rod">
+  <p><strong>Comunidade Luz do Caminho</strong> - Uma casa aberta para você.</p>
+  <p>Rua da Esperança, 200 - Centro | (33) 3200-2222 | contato@luzdocaminho.org.br</p>
+  <p>&copy; 2026 Comunidade Luz do Caminho. Igreja fictícia criada para fins didáticos.</p>
+</footer>
+<button id="topo" class="topo" type="button">Topo</button>
+
+<script>
+var $=function(s){return document.querySelector(s)},$$=function(s){return document.querySelectorAll(s)};
+function ir(p){$$('.pg').forEach(function(s){s.classList.toggle('on',s.id===p)});$$('.menu .l').forEach(function(b){b.classList.toggle('active',b.dataset.p===p)});window.scrollTo({top:0})}
+document.addEventListener('click',function(e){var t=e.target.closest('[data-p]');if(t)ir(t.dataset.p)});
+$('#fechar').addEventListener('click',function(){$('#alerta').style.display='none'});
+$('#tema').addEventListener('click',function(){var r=document.documentElement,e=r.getAttribute('data-tema')==='escuro';if(e)r.removeAttribute('data-tema');else r.setAttribute('data-tema','escuro');this.textContent=e?'Modo escuro':'Modo claro'});
+(function(){var sl=$$('.sl'),pt=$('.pts'),a=0,t;
+sl.forEach(function(_,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Slide '+(i+1));b.onclick=function(){go(i);rs()};pt.appendChild(b)});
+function go(i){a=(i+sl.length)%sl.length;sl.forEach(function(s,n){s.classList.toggle('on',n===a)});pt.querySelectorAll('button').forEach(function(b,n){b.classList.toggle('on',n===a)})}
+function rs(){clearInterval(t);t=setInterval(function(){go(a+1)},7000)}go(0);rs()})();
+(function(){var v=[["Vinde a mim, todos os que estais cansados e oprimidos, e eu vos aliviarei.","Mateus 11:28"],["O Senhor é o meu pastor, nada me faltará.","Salmos 23:1"],["Posso todas as coisas em Cristo que me fortalece.","Filipenses 4:13"],["Lâmpada para os meus pés é tua palavra, e luz para o meu caminho.","Salmos 119:105"],["Lançando sobre ele toda a vossa ansiedade, porque ele tem cuidado de vós.","1 Pedro 5:7"],["Não temas, porque eu sou contigo; não te assombres, porque eu sou o teu Deus.","Isaías 41:10"],["O amor é sofredor, é benigno; o amor não é invejoso.","1 Coríntios 13:4"]],i=0;
+$('#outro').addEventListener('click',function(){i=(i+1)%v.length;$('#verso').textContent='"'+v[i][0]+'"';$('#ref').textContent=v[i][1]})})();
+window.addEventListener('scroll',function(){$('#topo').classList.toggle('v',window.scrollY>300)});
+$('#topo').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+$('#form').addEventListener('submit',function(ev){ev.preventDefault();
+var n=$('#nome').value.trim(),m=$('#email').value.trim(),g=$('#msg').value.trim(),ok=true;
+function er(id,c,t){$('#e-'+id).textContent=t;$(c).classList.toggle('inv',!!t);if(t)ok=false}
+var at=m.indexOf('@'),dot=m.lastIndexOf('.'),v=at>0&&dot>at+1&&dot<m.length-1&&m.indexOf(' ')<0;
+$('#ok').textContent='';
+er('nome','#nome',n?'':'Digite seu nome.');
+er('email','#email',!m?'Digite seu e-mail.':(v?'':'Digite um e-mail válido, como nome@exemplo.com.'));
+er('msg','#msg',g?'':'Escreva sua mensagem.');
+if(ok){$('#ok').textContent='Recebemos sua mensagem, '+n+'. Que Deus abençoe você!';this.reset()}});
+</script>
+</body>
+</html>

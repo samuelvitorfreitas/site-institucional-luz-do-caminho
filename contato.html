@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fale com a Comunidade Luz do Caminho: contato e pedidos de oração.">
+  <title>Contato | Comunidade Luz do Caminho</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <div class="alerta" id="alerta"><strong>Aviso</strong><span>Culto de oração de quarta começa às 19h30 nesta semana. Avise os irmãos!</span><button type="button" id="fechar" aria-label="Fechar aviso">&times;</button></div>
+  <header class="cabecalho">
+    <a class="marca" href="index.html"><img src="img/logo.svg" alt="" width="32" height="32"> Luz do Caminho</a>
+    <nav class="menu" aria-label="Menu principal">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Quem somos</a>
+      <a href="servicos.html">Programação</a>
+      <a href="index.html#avisos">Avisos</a>
+      <a href="contato.html" class="active">Contato</a>
+      <button id="tema" class="tema" type="button" aria-label="Alternar modo claro e escuro">Modo escuro</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="bloco">
+      <p class="sobretitulo">Fale conosco</p>
+      <h1>Contato e pedidos de oração</h1>
+      <p>Mande sua mensagem ou seu pedido de oração. Nossa equipe responde com carinho.</p>
+      <div class="duas-colunas">
+        <form id="formulario" novalidate>
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" autocomplete="name">
+          <span class="erro" id="erro-nome" role="alert"></span>
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" autocomplete="email">
+          <span class="erro" id="erro-email" role="alert"></span>
+
+          <label for="mensagem">Mensagem ou pedido de oração</label>
+          <textarea id="mensagem" name="mensagem" rows="5"></textarea>
+          <span class="erro" id="erro-mensagem" role="alert"></span>
+
+          <button class="botao" type="submit">Enviar</button>
+          <p id="sucesso" class="sucesso" role="status"></p>
+        </form>
+
+        <aside class="cartao">
+          <h2>Venha nos visitar</h2>
+          <p><strong>Endereço:</strong><br>Rua da Esperança, 200 - Centro</p>
+          <p><strong>Telefone:</strong><br>(33) 3200-2222</p>
+          <p><strong>E-mail:</strong><br>contato@luzdocaminho.org.br</p>
+          <p><strong>Secretaria:</strong><br>Terça a sexta, das 9h às 17h</p>
+          <p><strong>Para visitantes:</strong><br>Estacionamento gratuito, espaço kids e recepção na entrada.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-grade">
+      <div><h3>Luz do Caminho</h3><p>Uma casa aberta para você e sua família.</p></div>
+      <div><h3>Navegação</h3>
+        <ul class="sem-marca"><li><a href="index.html">Início</a></li><li><a href="sobre.html">Quem somos</a></li><li><a href="servicos.html">Programação</a></li><li><a href="contato.html">Contato</a></li></ul>
+      </div>
+      <div><h3>Contato</h3><p>Rua da Esperança, 200 - Centro<br>(33) 3200-2222<br>contato@luzdocaminho.org.br</p></div>
+    </div>
+    <p class="copia">&copy; 2026 Comunidade Luz do Caminho. Igreja fictícia criada para fins didáticos.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

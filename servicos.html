@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Programação semanal e ministérios da Comunidade Luz do Caminho.">
+  <title>Programação | Comunidade Luz do Caminho</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <div class="alerta" id="alerta"><strong>Aviso</strong><span>Culto de oração de quarta começa às 19h30 nesta semana. Avise os irmãos!</span><button type="button" id="fechar" aria-label="Fechar aviso">&times;</button></div>
+  <header class="cabecalho">
+    <a class="marca" href="index.html"><img src="img/logo.svg" alt="" width="32" height="32"> Luz do Caminho</a>
+    <nav class="menu" aria-label="Menu principal">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Quem somos</a>
+      <a href="servicos.html" class="active">Programação</a>
+      <a href="index.html#avisos">Avisos</a>
+      <a href="contato.html">Contato</a>
+      <button id="tema" class="tema" type="button" aria-label="Alternar modo claro e escuro">Modo escuro</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="bloco">
+      <p class="sobretitulo">Agenda</p>
+      <h1>Programação e ministérios</h1>
+      <p>Com 20 ministérios, há um lugar para cada fase da vida e um jeito de servir.</p>
+      <div class="grade">
+        <article class="cartao"><h3>Ministério infantil</h3><p>Aulas lúdicas para crianças de 3 a 11 anos, com equipe treinada.</p></article>
+        <article class="cartao"><h3>Adolescentes e jovens</h3><p>Encontros aos sábados com louvor, debates e amizade.</p></article>
+        <article class="cartao"><h3>Casais e famílias</h3><p>Reuniões mensais e retiros para fortalecer o lar.</p></article>
+        <article class="cartao"><h3>Louvor e artes</h3><p>Banda, vocal, teatro e mídia. Há espaço para novos talentos.</p></article>
+        <article class="cartao"><h3>Ação social</h3><p>Cestas básicas, agasalhos e apoio a famílias da região.</p></article>
+        <article class="cartao"><h3>Cuidado e visitação</h3><p>Equipe que visita enfermos e acolhe quem está em luto.</p></article>
+        <article class="cartao"><h3>Recepção</h3><p>Os primeiros rostos amigos que recebem cada visitante.</p></article>
+        <article class="cartao"><h3>Grupos nos lares</h3><p>60 grupos durante a semana para estudo, oração e comunhão.</p></article>
+      </div>
+    </section>
+
+    <section class="bloco claro">
+      <p class="sobretitulo">Semana típica</p>
+      <h2>Horários</h2>
+      <div class="cartao">
+        <table>
+          <tbody>
+            <tr><td>Segunda</td><td>Grupos nos lares, 20h</td></tr>
+            <tr><td>Quarta</td><td>Culto de oração, 20h</td></tr>
+            <tr><td>Quinta</td><td>Ensaio do louvor, 19h30</td></tr>
+            <tr><td>Sábado</td><td>Encontro de jovens, 19h30</td></tr>
+            <tr><td>Domingo</td><td>Cultos às 8h, 10h e 19h</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="destaque">
+      <h2>Quer servir ou participar?</h2>
+      <p>Fale com a nossa equipe e encontre o ministério certo para você.</p>
+      <a class="botao" href="contato.html">Falar com a igreja</a>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-grade">
+      <div><h3>Luz do Caminho</h3><p>Uma casa aberta para você e sua família.</p></div>
+      <div><h3>Navegação</h3>
+        <ul class="sem-marca"><li><a href="index.html">Início</a></li><li><a href="sobre.html">Quem somos</a></li><li><a href="servicos.html">Programação</a></li><li><a href="contato.html">Contato</a></li></ul>
+      </div>
+      <div><h3>Contato</h3><p>Rua da Esperança, 200 - Centro<br>(33) 3200-2222<br>contato@luzdocaminho.org.br</p></div>
+    </div>
+    <p class="copia">&copy; 2026 Comunidade Luz do Caminho. Igreja fictícia criada para fins didáticos.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
